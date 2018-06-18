@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cleancode_labb2", "cleancode_labb2\cleancode_labb2.csproj", "{1A705A08-5380-47C9-8FED-5800676CDC39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCarPartControllerTest", "ApiCarPartControllerTest\ApiCarPartControllerTest.csproj", "{F57F930D-E429-4EA7-92A8-BA25A423D765}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1A705A08-5380-47C9-8FED-5800676CDC39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A705A08-5380-47C9-8FED-5800676CDC39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A705A08-5380-47C9-8FED-5800676CDC39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F57F930D-E429-4EA7-92A8-BA25A423D765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F57F930D-E429-4EA7-92A8-BA25A423D765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F57F930D-E429-4EA7-92A8-BA25A423D765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F57F930D-E429-4EA7-92A8-BA25A423D765}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
