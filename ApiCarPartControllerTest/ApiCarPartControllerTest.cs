@@ -11,7 +11,7 @@ namespace ApiCarPartControllerTest
     {
 
         [Fact]
-        public void ApiCarPartController_TryGetAllDataIfEmpty_Success()
+        public void ApiCarPartController_AttemptToGetAllDataIfEmpty_Success()
         {
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
@@ -21,10 +21,10 @@ namespace ApiCarPartControllerTest
         }
 
         [Fact]
-        public void ApiCarPartController_TryGetAllDataFromList_Success()
+        public void ApiCarPartController_AttemptToGetAllItemsFromProductCatalog_Success()
         {
             var mock = new Mock<IApiRequestSend<CarPart>>();
-            IEnumerable<CarPart> products = new[]
+            IEnumerable<CarPart> carParts = new[]
             {
                 new CarPart()
                 {
@@ -57,54 +57,54 @@ namespace ApiCarPartControllerTest
             };
 
             var ApiCarPartControllerMockMock = new ApiCarPartController(mock.Object);
-            mock.Setup(m => m.GetAllData()).Returns(products);
+            mock.Setup(m => m.GetAllData()).Returns(carParts);
 
             var actualObjects = mock.Object.GetAllData();
-            var expectedObjects = products;
+            var expectedObjects = carParts;
 
             Assert.Equal(expectedObjects, actualObjects);
 
         }
 
         [Fact]
-        public void ApiCarPartController_TryAddEntity_Success()
+        public void ApiCarPartController_AttemptToAddEntity_Success()
         {
-            var product = GetProduct();
+            var carPart = FetchCarPart();
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
 
-            apiCarPartControllerMock.AddProduct(product);
-            mock.Verify(m => m.AddEntity(product), Times.Once);
+            apiCarPartControllerMock.AddProduct(carPart);
+            mock.Verify(m => m.AddEntity(carPart), Times.Once);
         }
 
         [Fact]
-        public void ApiCarPartController_TryModifyEntity_Success()
+        public void ApiCarPartController_AttemptToModifyEntity_Success()
         {
-            var product = GetProduct();
+            var carPart = FetchCarPart();
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
 
-            apiCarPartControllerMock.EditProduct(product.Id, product);
-            mock.Verify(m => m.ModifyEntity(product.Id, product), Times.Once);
+            apiCarPartControllerMock.EditProduct(carPart.Id, carPart);
+            mock.Verify(m => m.ModifyEntity(carPart.Id, carPart), Times.Once);
         }
 
 
         [Fact]
-        public void ApiCarPartController_TryDeleteEntity_Success()
+        public void ApiCarPartController_AttemptToDeleteEntity_Success()
         {
-            var product = GetProduct();
+            var carPart = FetchCarPart();
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
 
-            apiCarPartControllerMock.DeleteProduct(product);
-            mock.Verify(m => m.DeleteEntity(product), Times.Once);
+            apiCarPartControllerMock.DeleteProduct(carPart);
+            mock.Verify(m => m.DeleteEntity(carPart), Times.Once);
         }
 
 
 
 
 
-        public CarPart GetProduct()
+        public CarPart FetchCarPart()
         {
             return new CarPart()
             {
