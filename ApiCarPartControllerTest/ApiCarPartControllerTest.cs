@@ -11,7 +11,7 @@ namespace ApiCarPartControllerTest
     {
 
         [Fact]
-        public void ApiCarPartController_AttemptToGetAllDataIfEmpty_Success()
+        public void GetAllData_AttemptToGetAllData_Success()
         {
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
@@ -21,7 +21,7 @@ namespace ApiCarPartControllerTest
         }
 
         [Fact]
-        public void ApiCarPartController_AttemptToGetAllItemsFromProductCatalog_Success()
+        public void GetAllData_AttemptToGetAllItemsFromProductCatalog_Success()
         {
             var mock = new Mock<IApiRequestSend<CarPart>>();
             IEnumerable<CarPart> carParts = new[]
@@ -67,8 +67,9 @@ namespace ApiCarPartControllerTest
         }
 
         [Fact]
-        public void ApiCarPartController_AttemptToAddEntity_Success()
+        public void AddProduct_AttemptToAddEntity_Success()
         {
+            //Lägg i en kontroll - upprepad kod
             var carPart = FetchCarPart();
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
@@ -78,8 +79,9 @@ namespace ApiCarPartControllerTest
         }
 
         [Fact]
-        public void ApiCarPartController_AttemptToModifyEntity_Success()
+        public void EditProduct_AttemptToModifyEntity_Success()
         {
+            //Lägg i en kontroll - upprepad kod
             var carPart = FetchCarPart();
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
@@ -90,8 +92,9 @@ namespace ApiCarPartControllerTest
 
 
         [Fact]
-        public void ApiCarPartController_AttemptToDeleteEntity_Success()
+        public void DeleteProduct_AttemptToDeleteEntity_Success()
         {
+            //Lägg i en kontroll - upprepad kod
             var carPart = FetchCarPart();
             var mock = new Mock<IApiRequestSend<CarPart>>();
             var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
@@ -104,7 +107,7 @@ namespace ApiCarPartControllerTest
 
 
 
-        public CarPart FetchCarPart()
+        private CarPart FetchCarPart()
         {
             return new CarPart()
             {
