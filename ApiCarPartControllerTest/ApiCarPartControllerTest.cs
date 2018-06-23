@@ -4,6 +4,8 @@ using cleancode_labb2.Models;
 using Xunit;
 using Moq;
 using System.Collections.Generic;
+using System.Linq; 
+
 
 namespace ApiCarPartControllerTest
 {
@@ -69,38 +71,35 @@ namespace ApiCarPartControllerTest
         [Fact]
         public void AddProduct_AttemptToAddEntity_Success()
         {
-            //Lägg i en kontroll - upprepad kod
-            var carPart = FetchCarPart();
-            var mock = new Mock<IApiRequestSend<CarPart>>();
-            var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
+            Arrange arr = ArrangeTests();
 
-            apiCarPartControllerMock.AddProduct(carPart);
-            mock.Verify(m => m.AddEntity(carPart), Times.Once);
+             //Old code - sparad av nostalgiska skäl ;-)            
+            //var carPart = FetchCarPart();
+            //var mock = new Mock<IApiRequestSend<CarPart>>();
+            //var apiCarPartController = new ApiCarPartController(mock.Object);
+
+            arr.ApiCarPartController.AddProduct(arr.CarPart);
+            arr.Mocka.Verify(m => m.AddEntity(arr.CarPart), Times.Once);
         }
 
         [Fact]
         public void EditProduct_AttemptToModifyEntity_Success()
         {
-            //Lägg i en kontroll - upprepad kod
-            var carPart = FetchCarPart();
-            var mock = new Mock<IApiRequestSend<CarPart>>();
-            var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
 
-            apiCarPartControllerMock.EditProduct(carPart.Id, carPart);
-            mock.Verify(m => m.ModifyEntity(carPart.Id, carPart), Times.Once);
+            Arrange arr = ArrangeTests();
+
+            arr.ApiCarPartController.EditProduct(arr.CarPart.Id, arr.CarPart);
+            arr.Mocka.Verify(m => m.ModifyEntity(arr.CarPart.Id, arr.CarPart), Times.Once);
         }
 
 
         [Fact]
         public void DeleteProduct_AttemptToDeleteEntity_Success()
         {
-            //Lägg i en kontroll - upprepad kod
-            var carPart = FetchCarPart();
-            var mock = new Mock<IApiRequestSend<CarPart>>();
-            var apiCarPartControllerMock = new ApiCarPartController(mock.Object);
+            Arrange arr = ArrangeTests();
 
-            apiCarPartControllerMock.DeleteProduct(carPart);
-            mock.Verify(m => m.DeleteEntity(carPart), Times.Once);
+            arr.ApiCarPartController.DeleteProduct(arr.CarPart);
+            arr.Mocka.Verify(m => m.DeleteEntity(arr.CarPart), Times.Once);
         }
 
 
@@ -122,6 +121,23 @@ namespace ApiCarPartControllerTest
 
         }
 
+
+
+        private Arrange ArrangeTests()
+        {
+            Arrange arrangeNewTest = new Arrange();
+            CarPart carPart = new CarPart();
+            
+            carPart = FetchCarPart();
+            Mock<IApiRequestSend<CarPart>> mock = arrangeNewTest.Mocka;
+            var ApiCarPartController = new ApiCarPartController(mock.Object);
+
+            arrangeNewTest.CarPart = carPart;
+            //arr.Mocka = mock;  // tilldelar mock värde från klass Arrange ovan istället :)
+            arrangeNewTest.ApiCarPartController = ApiCarPartController;
+
+            return arrangeNewTest;
+        }
 
 
 

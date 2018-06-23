@@ -14,11 +14,20 @@ namespace cleancode_labb2.Controllers
     [Route("api/ApiCarPart")]
     public class ApiCarPartController : Controller
     {
+        
         private readonly IApiRequestSend<CarPart> ApiRequestSend;
+        private object @object;
 
-        public ApiCarPartController(IApiRequestSend<CarPart> apiRequestSend)
+
+        public ApiCarPartController(IApiRequestSend<CarPart> apiRequestSend) 
         {
-            ApiRequestSend = apiRequestSend;
+           ApiRequestSend = apiRequestSend;
+            
+        }
+
+        public ApiCarPartController(object @object)
+        {
+            this.@object = @object;
         }
 
         public void AddProduct(CarPart product)
