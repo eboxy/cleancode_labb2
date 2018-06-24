@@ -16,8 +16,7 @@ namespace cleancode_labb2.Controllers
     {
         
         private readonly IApiRequestSend<CarPart> ApiRequestSend;
-        private object @object;
-
+        
 
         public ApiCarPartController(IApiRequestSend<CarPart> apiRequestSend) 
         {
@@ -25,20 +24,18 @@ namespace cleancode_labb2.Controllers
             
         }
 
-        public ApiCarPartController(object @object)
-        {
-            this.@object = @object;
-        }
 
         public void AddProduct(CarPart product)
         {
             ApiRequestSend.AddEntity(product);
         }
 
+
         public void EditProduct(int id, CarPart product)
         {
             ApiRequestSend.ModifyEntity(id, product);
         }
+
 
         public void DeleteProduct(CarPart product)
         {

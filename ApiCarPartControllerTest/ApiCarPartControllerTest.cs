@@ -134,6 +134,7 @@ namespace ApiCarPartControllerTest
 
             arrangeNewTest.CarPart = carPart;
             //arr.Mocka = mock;  // tilldelar mock värde från klass Arrange ovan istället :)
+            
             arrangeNewTest.ApiCarPartController = ApiCarPartController;
 
             return arrangeNewTest;
