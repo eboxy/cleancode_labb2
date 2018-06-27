@@ -6,7 +6,7 @@ using Moq;
 using System.Collections.Generic;
 using System.Linq; 
 
-
+//hej
 namespace ApiCarPartControllerTest
 {
     public class ApiCarPartControllerTest
@@ -73,7 +73,7 @@ namespace ApiCarPartControllerTest
         {
             Arrange arr = ArrangeTests();
 
-             //Old code - sparad av nostalgiska sk‰l ;-)            
+             //Old code - sparad av nostalgiska sk√§l ;-)            
             //var carPart = FetchCarPart();
             //var mock = new Mock<IApiRequestSend<CarPart>>();
             //var apiCarPartController = new ApiCarPartController(mock.Object);
@@ -133,7 +133,7 @@ namespace ApiCarPartControllerTest
             var ApiCarPartController = new ApiCarPartController(mock.Object);
 
             arrangeNewTest.CarPart = carPart;
-            //arr.Mocka = mock;  // tilldelar mock v‰rde frÂn klass Arrange ovan ist‰llet :)
+            //arr.Mocka = mock;  // tilldelar mock v√§rde fr√•n klass Arrange ovan ist√§llet :)
             
             arrangeNewTest.ApiCarPartController = ApiCarPartController;
 
